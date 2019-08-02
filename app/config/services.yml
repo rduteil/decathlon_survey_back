@@ -1,0 +1,51 @@
+parameters:
+    #parameter_name: value
+
+services:
+
+    em:
+        class: Doctrine\ORM\EntityManager
+        factory: ['@doctrine', 'getManager']    
+
+    resolver.base:
+        class: AppBundle\Resolver\AbstractResolver
+        abstract: true
+        arguments: ['@service_container', '@security.token_storage']
+        calls:
+            - [ init, ['@em']]
+
+    resolver.survey:
+        class: AppBundle\Resolver\SurveyResolver
+        parent: 'resolver.base'   
+
+    resolver.question:
+        class: AppBundle\Resolver\QuestionResolver
+        parent: 'resolver.base'    
+    
+    resolver.user:
+        class: AppBundle\Resolver\UserResolver
+        parent: 'resolver.base'
+
+    resolver.service:
+        class: AppBundle\Resolver\ServiceResolver
+        parent: 'resolver.base'
+
+    resolver.questionAnswer:
+        class: AppBundle\Resolver\QuestionAnswerResolver
+        parent: 'resolver.base'
+
+    resolver.surveyAnswer:
+        class: AppBundle\Resolver\SurveyAnswerResolver
+        parent: 'resolver.base'
+
+    resolver.folder:
+        class: AppBundle\Resolver\FolderResolver
+        parent: 'resolver.base'
+
+    resolver.section:
+        class: AppBundle\Resolver\SectionResolver
+        parent: 'resolver.base'
+
+    resolver.questionLibrary:
+        class: AppBundle\Resolver\QuestionLibraryResolver
+        parent: 'resolver.base'

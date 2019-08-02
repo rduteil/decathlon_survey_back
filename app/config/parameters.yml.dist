@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: $PROD_SERVER_IP
+    database_port: 5432
+    database_name: $DATABASE_USERNAME
+    database_user: $DATABASE_USERNAME
+    database_password: $DATABASE_USERNAME
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+    jwt_private_key_path: '%kernel.root_dir%/../config/jwt/private.pem'
+    jwt_public_key_path: '%kernel.root_dir%/../config/jwt/public.pem'
+    jwt_key_pass_phrase: solutec2018
+    jwt_token_ttl: 14400
